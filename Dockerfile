@@ -1,5 +1,4 @@
-FROM docker.io/httpd
-RUN yum install httpd -y
-RUN echo Hi from Jenkins > /var/www/html/index.html
+FROM docker.io/library/httpd
+COPY index.html /usr/local/apache2/htdocs/
 CMD systemctl start httpd
 
