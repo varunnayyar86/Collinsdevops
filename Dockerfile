@@ -1,8 +1,5 @@
 FROM docker.io/httpd
-
-RUN  apt update  && apt install apache2 -y
-
-COPY index.html /usr/local/apache2/htdocs/
-
-CMD   apachectl start
+RUN yum install httpd -y
+RUN echo Hi from Jenkins > /var/www/html/index.html
+CMD systemctl start httpd
 
